@@ -25,16 +25,16 @@ contextstream-mcp setup
 
 ## Version
 
-Current formula: **0.5.90**
+Current formula: **1.0.5**
 
 Binaries and published SHA-256 checksums come from the official versioned release:
 
 - Manifest: https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/latest/version.json
-- Checksums: https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v0.5.90/checksums.txt
-- Darwin arm64: https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v0.5.90/contextstream-mcp-darwin-arm64
-- Darwin x64: https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v0.5.90/contextstream-mcp-darwin-x64
-- Linux x64: https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v0.5.90/contextstream-mcp-linux-x64
-- Linux arm64: https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v0.5.90/contextstream-mcp-linux-arm64
+- Checksums: https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.5/checksums.txt
+- Darwin arm64: https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.5/contextstream-mcp-darwin-arm64
+- Darwin x64: https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.5/contextstream-mcp-darwin-x64
+- Linux x64: https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.5/contextstream-mcp-linux-x64
+- Linux arm64: https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.5/contextstream-mcp-linux-arm64
 
 The same installer used by `curl -fsSL https://contextstream.io/scripts/mcp.sh | bash` downloads these artifacts.
 
