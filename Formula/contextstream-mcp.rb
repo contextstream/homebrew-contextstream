@@ -1,65 +1,65 @@
 class ContextstreamMcp < Formula
-    desc "Native Rust MCP server for ContextStream project memory"
-    homepage "https://contextstream.io/docs/mcp"
-    version "1.0.5"
-    license "MIT"
+  desc "Native Rust MCP server for ContextStream project memory"
+  homepage "https://contextstream.io/docs/mcp"
+  version "1.0.7"
+  license "MIT"
 
-    # Official versioned binaries and published checksums:
-    # https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.5/checksums.txt
-    # Do not confuse with Homebrew/core context7-mcp or ctx7 (unrelated npm packages).
+  # Official versioned binaries and published checksums:
+  # https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.7/checksums.txt
+  # Do not confuse with Homebrew/core context7-mcp or ctx7 (unrelated npm packages).
 
-    livecheck do
-          url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/latest/version.json"
-          regex(/"version"\s*:\s*"v?(\d+(?:\.\d+)+)"/i)
+  livecheck do
+    url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/latest/version.json"
+    regex(/"version"\s*:\s*"v?(\d+(?:\.\d+)+)"/i)
+  end
+
+  on_macos do
+    on_arm do
+      url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.7/contextstream-mcp-darwin-arm64",
+          verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
+      sha256 "fd13de63057569eb31c875269b53a5a52a438052735ac8b1f7da120a112a64ca"
     end
-
-    on_macos do
-          on_arm do
-                  url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.5/contextstream-mcp-darwin-arm64",
-                      verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
-                  sha256 "0b04d6e7733745aa08f21518f41ec158bcc1799bedaaf807ee7a85b3606d8d25"
-          end
-          on_intel do
-                  url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.5/contextstream-mcp-darwin-x64",
-                      verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
-                  sha256 "40d24151500c847affb48c3c94b30d002ebaef21aa3c69544bd66b29991608aa"
-          end
+    on_intel do
+      url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.7/contextstream-mcp-darwin-x64",
+          verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
+      sha256 "e8a8c9fae6dd533c4df3c96ae0b6a1f0b0960237574ae7b0a7a432d5b27ecdc9"
     end
+  end
 
-    on_linux do
-          on_arm do
-                  url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.5/contextstream-mcp-linux-arm64",
-                      verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
-                  sha256 "fccfc9030221fe86d3506bdef37acc86005c87cb4affe36b01b784acbff75ce8"
-          end
-          on_intel do
-                  url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.5/contextstream-mcp-linux-x64",
-                      verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
-                  sha256 "e5d68ecfa8a2623a496edcdc3e2136bb02150125649e8cc7a669824805ba7cf1"
-          end
+  on_linux do
+    on_arm do
+      url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.7/contextstream-mcp-linux-arm64",
+          verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
+      sha256 "89722898e8ec364aa7dbb458bf5b0ce2410cc7bd1f35d358d3867fc8c4dd3626"
     end
-
-    def install
-          artifact = Dir["contextstream-mcp-*"].first
-          odie "downloaded contextstream-mcp artifact not found" if artifact.nil?
-
-          chmod "+x", artifact
-          bin.install artifact => "contextstream-mcp"
+    on_intel do
+      url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.7/contextstream-mcp-linux-x64",
+          verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
+      sha256 "01144a1f2819e96e14889e5cdb93d6a3f41057d9260ea381b8f4d8adf9751f49"
     end
+  end
 
-    def caveats
-          <<~EOS
-                This installs the native Rust `contextstream-mcp` binary, not the
-                      legacy npm package and not the unrelated Homebrew formulae
-                            `context7-mcp` or `ctx7`.
+  def install
+    artifact = Dir["contextstream-mcp-*"].first
+    odie "downloaded contextstream-mcp artifact not found" if artifact.nil?
 
-                                  Configure editor MCP clients with:
+    chmod "+x", artifact
+    bin.install artifact => "contextstream-mcp"
+  end
 
-                                          contextstream-mcp setup
-                                              EOS
-    end
+  def caveats
+    <<~EOS
+      This installs the native Rust `contextstream-mcp` binary, not the
+      legacy npm package and not the unrelated Homebrew formulae
+      `context7-mcp` or `ctx7`.
 
-    test do
-          assert_match version.to_s, shell_output("#{bin}/contextstream-mcp --version")
-    end
+      Configure editor MCP clients with:
+
+        contextstream-mcp setup
+    EOS
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/contextstream-mcp --version")
+  end
 end
