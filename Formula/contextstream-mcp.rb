@@ -9,57 +9,57 @@ class ContextstreamMcp < Formula
     # Do not confuse with Homebrew/core context7-mcp or ctx7 (unrelated npm packages).
 
     livecheck do
-          url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/latest/version.json"
-          regex(/"version"\s*:\s*"v?(\d+(?:\.\d+)+)"/i)
+        url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/latest/version.json"
+        regex(/"version"\s*:\s*"v?(\d+(?:\.\d+)+)"/i)
     end
 
     on_macos do
-          on_arm do
-                  url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.10/contextstream-mcp-darwin-arm64",
-                      verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
-                  sha256 "788115757ac0949516a953148f235613649ce6f0ed0b93b80e831535cf3d38d0"
-          end
-          on_intel do
-                  url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.10/contextstream-mcp-darwin-x64",
-                      verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
-                  sha256 "b057509ee876e19c871d645ed0c1104506f02c8ae47a83dac1cfbd00c4ee4743"
-          end
+        on_arm do
+            url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.10/contextstream-mcp-darwin-arm64",
+            verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
+            sha256 "788115757ac0949516a953148f235613649ce6f0ed0b93b80e831535cf3d38d0"
+        end
+        on_intel do
+            url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.10/contextstream-mcp-darwin-x64",
+            verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
+            sha256 "b057509ee876e19c871d645ed0c1104506f02c8ae47a83dac1cfbd00c4ee4743"
+        end
     end
 
     on_linux do
-          on_arm do
-                  url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.10/contextstream-mcp-linux-arm64",
-                      verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
-                  sha256 "b0feb987a636a20f0765d5477c7634e7ddecaf06e4ba1672d87fbdd17baef34a"
-          end
-          on_intel do
-                  url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.10/contextstream-mcp-linux-x64",
-                      verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
-                  sha256 "cf50e78507b57b847c4a9607ebca0a9a00f3b64dc39cefac8d15f31fb44afd90"
-          end
+        on_arm do
+            url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.10/contextstream-mcp-linux-arm64",
+            verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
+            sha256 "b0feb987a636a20f0765d5477c7634e7ddecaf06e4ba1672d87fbdd17baef34a"
+        end
+        on_intel do
+            url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.10/contextstream-mcp-linux-x64",
+            verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
+            sha256 "cf50e78507b57b847c4a9607ebca0a9a00f3b64dc39cefac8d15f31fb44afd90"
+        end
     end
 
     def install
-          artifact = Dir["contextstream-mcp-*"].first
-          odie "downloaded contextstream-mcp artifact not found" if artifact.nil?
+        artifact = Dir["contextstream-mcp-*"].first
+        odie "downloaded contextstream-mcp artifact not found" if artifact.nil?
 
-          chmod "+x", artifact
-          bin.install artifact => "contextstream-mcp"
+        chmod "+x", artifact
+        bin.install artifact => "contextstream-mcp"
     end
 
     def caveats
-          <<~EOS
-                This installs the native Rust `contextstream-mcp` binary, not the
-                      legacy npm package and not the unrelated Homebrew formulae
-                            `context7-mcp` or `ctx7`.
+        <<~EOS
+        This installs the native Rust `contextstream-mcp` binary, not the
+        legacy npm package and not the unrelated Homebrew formulae
+        `context7-mcp` or `ctx7`.
 
-                                  Configure editor MCP clients with:
+        Configure editor MCP clients with:
 
-                                          contextstream-mcp setup
-                                              EOS
+        contextstream-mcp setup
+        EOS
     end
 
     test do
-          assert_match version.to_s, shell_output("#{bin}/contextstream-mcp --version")
+        assert_match version.to_s, shell_output("#{bin}/contextstream-mcp --version")
     end
 end
