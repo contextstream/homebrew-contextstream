@@ -1,11 +1,11 @@
 class ContextstreamMcp < Formula
   desc "Native Rust MCP server for ContextStream project memory"
   homepage "https://contextstream.io/docs/mcp"
-  version "1.0.10"
+  version "1.0.13"
   license "MIT"
 
   # Official versioned binaries and published checksums:
-  # https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.10/checksums.txt
+  # https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.13/checksums.txt
   # Do not confuse with Homebrew/core context7-mcp or ctx7 (unrelated npm packages).
 
   livecheck do
@@ -15,27 +15,27 @@ class ContextstreamMcp < Formula
 
   on_macos do
     on_arm do
-      url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.10/contextstream-mcp-darwin-arm64",
+      url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.13/contextstream-mcp-darwin-arm64",
       verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
-      sha256 "788115757ac0949516a953148f235613649ce6f0ed0b93b80e831535cf3d38d0"
+      sha256 "e9f1e9d52db5536bcaa7367d7b6ac732b2adc2a3f44a25ee93ae9e84142a3ff6"
     end
     on_intel do
-      url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.10/contextstream-mcp-darwin-x64",
+      url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.13/contextstream-mcp-darwin-x64",
       verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
-      sha256 "b057509ee876e19c871d645ed0c1104506f02c8ae47a83dac1cfbd00c4ee4743"
+      sha256 "9c77038220486b11562d209dae8b343d26f0c70378db13599be05f19d4101d2e"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.10/contextstream-mcp-linux-arm64",
+      url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.13/contextstream-mcp-linux-arm64",
       verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
-      sha256 "b0feb987a636a20f0765d5477c7634e7ddecaf06e4ba1672d87fbdd17baef34a"
+      sha256 "2bfba0bcf734e57273b4bfe58164f79c097a541c0de56db4be067f4fd1e7c7b1"
     end
     on_intel do
-      url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.10/contextstream-mcp-linux-x64",
+      url "https://pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/v1.0.13/contextstream-mcp-linux-x64",
       verified: "pub-68429b9f7857416c9484b75bf1887b96.r2.dev/mcp/"
-      sha256 "cf50e78507b57b847c4a9607ebca0a9a00f3b64dc39cefac8d15f31fb44afd90"
+      sha256 "71027f99b5804aac055c4720ce779fbc5354343c9ade3ca9400bbda0d3b2a6a1"
     end
   end
 
